@@ -1,0 +1,31 @@
+name: Daily News Notification
+
+on:
+  schedule:
+    # 每天北京时间早上 8:00 (对应 UTC 时间 0:00)
+    - cron: '0 0 * * *'
+  # 允许你手动点击按钮测试
+  workflow_dispatch:
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run notification script
+      env:
+        # 这里会自动读取你在第二步设置的 Token
+        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+      run: python send_notify.py
