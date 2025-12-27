@@ -2,5 +2,5 @@ streamlit
 edge-tts
 asyncio
 feedparser
-google-generativeai>=0.7.0
+google-generativeai
 beautifulsoup4
