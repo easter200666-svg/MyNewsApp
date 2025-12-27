@@ -18,7 +18,7 @@ if not api_key:
 
 # 配置 Gemini
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-1.5-flash') # 使用快速且免费的模型
+model = genai.GenerativeModel('gemini-pro')# 使用快速且免费的模型
 
 # --- 2. 样式优化 ---
 st.markdown("""
