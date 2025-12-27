@@ -1,3 +1,6 @@
 streamlit
 edge-tts
 asyncio
+feedparser
+google-generativeai
+beautifulsoup4
